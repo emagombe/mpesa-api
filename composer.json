@@ -1,0 +1,20 @@
+{
+    "name": "emagombe/mpesa-api",
+    "description": "API em PHP para M-PESA (Mo\u0000ambique)",
+    "type": "library",
+    "authors": [
+        {
+            "name": "Edson Magombe",
+            "email": "edson.patricio.39@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "emagombe\\": "src/"
+        }
+    },
+    "require": {
+        "php": "^7.0",
+        "bearer/bearer-php": "^2.1"
+    }
+}
