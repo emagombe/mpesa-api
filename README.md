@@ -2,6 +2,15 @@
 API em PHP para M-PESA (Moçambique)
 
 ```php
+use emagombe\Mpesa;
+
+$api_key = "";
+$public_key = "";
+$ssl = true;
+$mpesa = Mpesa::init($api_key, $public_key, $ssl);
+```
+
+```php
 /* Transfer to client */
 $data = [
 	"value" => 10,
