@@ -14,7 +14,6 @@
         }
     },
     "require": {
-        "php": "^7.0",
-        "bearer/bearer-php": "^2.1"
+        "php": "^7.0"
     }
 }
