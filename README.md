@@ -22,7 +22,7 @@ $ssl = true;		# True se pretende utilizar uma conexão segura (SSL)
 # Inicialização e criação do objecto
 $mpesa = Mpesa::init($api_key, $public_key, $ssl);
 ```
-### Transferência business to client (de negócio para clinte)
+### Transferência business to client (de negócio para cliente)
 Nesta operação, é transferido valor do agente para o clinte
 ```php
 $data = [
