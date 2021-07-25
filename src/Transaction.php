@@ -47,7 +47,7 @@ class Transaction {
 			"input_ReceiverPartyCode" => $data["agent_receiver_id"],
 			"input_Amount" => $data["value"],
 			"input_ThirdPartyReference" => (isset($data["transaction_id"]) ? $data["transaction_id"] : Cryptor::getId()),
-			"input_ServiceProviderCode" => $data["agent_id"],
+			"input_PrimaryPartyCode" => $data["agent_id"],
 		];
 		$params = json_encode($params);
 		$request = new Request();
