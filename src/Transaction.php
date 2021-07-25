@@ -41,7 +41,7 @@ class Transaction {
 	}
 
 	public function b2b($data, $callback) {
-		$url = "https://api.sandbox.vm.co.mz:18349/ipg/v1x/b2cPayment/";
+		$url = "https://api.sandbox.vm.co.mz:18349/ipg/v1x/b2bPayment/";
 		$params = [
 			"input_TransactionReference" => "T12344C",
 			"input_ReceiverPartyCode" => $data["agent_receiver_id"],
