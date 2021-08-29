@@ -10,7 +10,7 @@ class Mpesa {
 	public static $public_key = null;
 	public static $ssl = true;
 
-	public function init($api_key, $public_key, $ssl = true) {
+	public static function init($api_key, $public_key, $ssl = true) {
 		self::$api_key = $api_key;
 		self::$public_key = $public_key;
 		self::$ssl = $ssl;

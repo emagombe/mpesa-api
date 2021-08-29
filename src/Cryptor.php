@@ -30,7 +30,7 @@ class Cryptor {
 		return $pem;
 	}
 
-	public function getId($length = 8) {
+	public static function getId($length = 8) {
 	    $characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 	    $charactersLength = strlen($characters);
 	    $randomString = '';
