@@ -1,5 +1,5 @@
 # mpesa-api
-API escrito em PHP para M-PESA (Moçambique)
+API escrita em PHP para M-PESA (Moçambique)
 
 [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
 
