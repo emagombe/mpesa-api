@@ -73,7 +73,7 @@ $data = [
 	"agent_id" => 171717,			# Código do agente
 	"transaction_reference" => "#ref-1234"	# (Opcional) Usando para atribuir uma referencia a transação
 ];
-$mpesa->b2b($data, function($response) {
+$mpesa->reversal($data, function($response) {
 	print_r($response);
 });
 ```
