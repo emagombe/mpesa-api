@@ -66,6 +66,30 @@ class Request {
 		$callback($response);
 	}
 
+	public function put($url_path, $params, $callback) {
+		$length = strlen($params);
+		$header = $this->prepare_headers([
+			"Content-Length" => $length,
+			"Content-Type" => "application/json",
+			"Origin" => "*",
+			"Authorization" => "Bearer ".Cryptor::token($this->public_key, $this->api_key),
+		]);
+
+		$opts = array("http" =>
+		    array(
+		        "method"  => "PUT",
+		        "header"  => $header,
+		        "content" => $params,
+		        "ignore_errors" => true,
+		        "protocol_version" => "1.1",
+		        "request_fulluri" => false,
+		    )
+		);
+		$context  = stream_context_create($opts);
+		$response = file_get_contents($url_path, false, $context);
+		$callback($response);
+	}
+
 	private function prepare_headers($headers) {
  		return implode('', array_map(function($key, $value) {
  			return "$key: $value\r\n";

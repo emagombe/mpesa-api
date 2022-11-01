@@ -55,4 +55,21 @@ class Transaction {
 			$callback($response);
 		});
 	}
+
+	public function reversal($data, $callback) {
+		$url = "https://api.sandbox.vm.co.mz:18354/ipg/v1x/reversal/";
+		$params = [
+			"input_TransactionID" => $data["transaction_id"],
+			"input_SecurityCredential" => $data["security_credential"],
+			"input_InitiatorIdentifier" => $data["indicator_identifier"],
+			"input_ThirdPartyReference" => isset($data["transaction_reference"]) ? $data["transaction_reference"] : uniqid(),
+			"input_ServiceProviderCode" => $data["agent_id"],
+			"input_ReversalAmount" => $data["value"],
+		];
+		$params = json_encode($params);
+		$request = new Request();
+		$request->put($url, $params, function($response) use ($callback) {
+			$callback($response);
+		});
+	}
 }

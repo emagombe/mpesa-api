@@ -29,7 +29,7 @@ $data = [
 	"value" => 10,								# Valor a transferir
 	"client_number" => "123456789",				# Número do cliente beneficiário
 	"agent_id" => 171717,						# Código do agente
-	"transaction_reference" => "#factura-1234"	# (Opcional) Usando para atribuir uma referencia a transação
+	"transaction_reference" => "#ref-1234"		# (Opcional) Usando para atribuir uma referencia a transação
 ];
 $mpesa->b2c($data, function($response) {
 	print_r($response);
@@ -42,7 +42,7 @@ $data = [
 	"value" => 10,								# Valor a transferir
 	"client_number" => "123456789",				# Número do cliente
 	"agent_id" => 171717,						# Código do agente beneficiário
-	"transaction_reference" => "#factura-1234"	# (Opcional) Usando para atribuir uma referencia a transação
+	"transaction_reference" => "#ref-1234"		# (Opcional) Usando para atribuir uma referencia a transação
 ];
 $mpesa->c2b($data, function($response) {
 	print_r($response);
@@ -55,7 +55,23 @@ $data = [
 	"value" => 10,								# Valor a transferir
 	"agent_id" => 171717,						# Código do agente
 	"agent_receiver_id" => 979797,				# Código do agente beneficiário
-	"transaction_reference" => "#factura-1234"	# (Opcional) Usando para atribuir uma referencia a transação
+	"transaction_reference" => "#ref-1234"		# (Opcional) Usando para atribuir uma referencia a transação
+];
+$mpesa->b2b($data, function($response) {
+	print_r($response);
+});
+```
+
+### Reversão de transação
+
+```php
+$data = [
+	"value" => 10,
+	"security_credential" => "",
+	"indicator_identifier" => "",
+	"transaction_id" => "",					# Id da transação a reverter
+	"agent_id" => 171717,					# Código do agente
+	"transaction_reference" => "#ref-1234"	# (Opcional) Usando para atribuir uma referencia a transação
 ];
 $mpesa->b2b($data, function($response) {
 	print_r($response);
