@@ -11,11 +11,11 @@ class Transaction {
 		$url = "https://api.sandbox.vm.co.mz:18352/ipg/v1x/c2bPayment/singleStage/";
 
 		$params = [
-			"input_TransactionReference" => $data["transaction_reference"],
-			"input_CustomerMSISDN" => $data["client_number"],
 			"input_Amount" => $data["value"],
-			"input_ThirdPartyReference" => $data["third_party_reference"],
+			"input_CustomerMSISDN" => $data["client_number"],
 			"input_ServiceProviderCode" => $data["agent_id"],
+			"input_TransactionReference" => $data["transaction_reference"],
+			"input_ThirdPartyReference" => $data["third_party_reference"],
 		];
 		$params = json_encode($params);
 		$request = new Request();
@@ -27,11 +27,11 @@ class Transaction {
 	public function b2c($data, $callback) {
 		$url = "https://api.sandbox.vm.co.mz:18345/ipg/v1x/b2cPayment/";
 		$params = [
-			"input_TransactionReference" => isset($data["transaction_reference"]) ? $data["transaction_reference"] : uniqid(),
-			"input_CustomerMSISDN" => $data["client_number"],
 			"input_Amount" => $data["value"],
-			"input_ThirdPartyReference" => (isset($data["transaction_id"]) ? $data["transaction_id"] : Cryptor::getId()),
+			"input_CustomerMSISDN" => $data["client_number"],
 			"input_ServiceProviderCode" => $data["agent_id"],
+			"input_TransactionReference" => $data["transaction_reference"],
+			"input_ThirdPartyReference" => $data["third_party_reference"],
 		];
 		$params = json_encode($params);
 		$request = new Request();

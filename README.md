@@ -30,7 +30,7 @@ $data = [
 	"client_number" => "123456789",			# (Obrigatório) Número do cliente beneficiário
 	"agent_id" => 171717,				# (Obrigatório) Código do agente
 	"transaction_reference" => "#ref-1234"		# (Obrigatório) Usado para atribuir uma referencia a transação
-	"third_party_reference" => "#bussiness-1234",		# (Obrigatório) Esta referencia será usada para efectuar consulta das transações
+	"third_party_reference" => "#business-1234",		# (Obrigatório) Esta referencia será usada para efectuar consulta das transações
 ];
 $mpesa->b2c($data, function($response) {
 	print_r($response);
@@ -40,10 +40,11 @@ $mpesa->b2c($data, function($response) {
 Nesta operação, é transferido valor do cliente para o agente
 ```php
 $data = [
-	"value" => 10,					# Valor a transferir
-	"client_number" => "123456789",			# Número do cliente
-	"agent_id" => 171717,				# Código do agente beneficiário
-	"transaction_reference" => "#ref-1234"		# (Opcional) Usando para atribuir uma referencia a transação
+	"value" => 10,					# (Obrigatório) Valor a transferir
+	"client_number" => "123456789",			# (Obrigatório) Número do cliente
+	"agent_id" => 171717,				# (Obrigatório) Código do agente beneficiário
+	"transaction_reference" => "#ref-1234"		# (Obrigatório) Usando para atribuir uma referencia a transação
+	"third_party_reference" => "#business-1234",		# (Obrigatório) Esta referencia será usada para efectuar consulta das transações
 ];
 $mpesa->c2b($data, function($response) {
 	print_r($response);
