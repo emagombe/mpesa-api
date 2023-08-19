@@ -18,28 +18,26 @@ class Request {
 	}
 
 	public function get($url_path, $params, $callback) {
-		$length = strlen(http_build_query($params));
+
+		$query = http_build_query($params);
 
 		$header = $this->prepare_headers([
-			"Content-Length" => $length,
 			"Content-Type" => "application/json",
 			"Origin" => "*",
 			"Authorization" => "Bearer ".Cryptor::token($this->public_key, $this->api_key),
-			"ignore_errors" => true,
-	        "protocol_version" => "1.1",
-	        "request_fulluri" => false,
 		]);
 
 		$opts = array("http" =>
 		    array(
 		        "method"  => "GET",
 		        "header"  => $header,
-		        "content" => http_build_query($params),
-		        "ignore_errors" => false,
+		        "ignore_errors" => true,
+		        "protocol_version" => "1.1",
+		        "request_fulluri" => false,
 		    ),
 		);
 		$context  = stream_context_create($opts);
-		$response = file_get_contents($url_path, false, $context);
+		$response = file_get_contents($url_path."?".$query, false, $context);
 		$callback($response);
 	}
 	public function post($url_path, $params, $callback) {

@@ -80,7 +80,6 @@ class Transaction {
 			"input_ThirdPartyReference" => $data["third_party_reference"],
 			"input_ServiceProviderCode" => $data["agent_id"],
 		];
-		$params = json_encode($params);
 		$request = new Request();
 		$request->get($url, $params, function($response) use ($callback) {
 			$callback($response);
