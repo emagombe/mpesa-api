@@ -16,8 +16,8 @@ $data = [
 	"value" => 10,
 	"client_number" => "258840000000",
 	"agent_id" => 171717,
-	"third_party_reference" => "#MyBusiness-1234",
-	"transaction_reference" => "#ref-1234",
+	"third_party_reference" => 33333,
+	"transaction_reference" => 1234567,
 ];
 $mpesa->c2b($data, function($response) {
 	print_r($response);

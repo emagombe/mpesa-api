@@ -18,7 +18,7 @@ $data = [
 	"indicator_identifier" => "",
 	"transaction_id" => "",
 	"agent_id" => 171717,
-	"third_party_reference" => "#MyBusiness-1234",
+	"third_party_reference" => 33333,
 	"transaction_id" => "",
 ];
 $mpesa->reversal($data, function($response) {

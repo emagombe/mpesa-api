@@ -77,7 +77,7 @@ class Transaction {
 		$url = "https://api.sandbox.vm.co.mz:18353/ipg/v1x/queryTransactionStatus/";
 		$params = [
 			"input_QueryReference" => $data["transaction_id"],
-			"input_ThirdPartyReference" => isset($data["transaction_reference"]) ? $data["transaction_reference"] : uniqid(),
+			"input_ThirdPartyReference" => $data["third_party_reference"],
 			"input_ServiceProviderCode" => $data["agent_id"],
 		];
 		$params = json_encode($params);
