@@ -127,8 +127,8 @@ $mpesa->reversal($data, function($response) {
 
 ```php
 $data = [
-	"transaction_id" => "",				# (Obrigatório) Id da transação a reverter
-	"agent_id" => 171717,				# (Obrigatório) Código do agente
+	"transaction_id" => "",		# (Obrigatório) Id da transação a reverter
+	"agent_id" => 171717,			# (Obrigatório) Código do agente
 	"third_party_reference" => 33333,	# (Obrigatório) Esta referencia será usada para efectuar consulta das transações
 ];
 $mpesa->status($data, function($response) {
@@ -154,8 +154,8 @@ Nota impotante: É impossível verificar o nome do cliente usando as credenciais
 
 ```php
 $data = [
-	"client_number" => "258840000000",				# (Obrigatório) Número do cliente
-	"agent_id" => 171717,				# (Obrigatório) Código do agente
+	"client_number" => "258840000000",	# (Obrigatório) Número do cliente
+	"agent_id" => 171717,		# (Obrigatório) Código do agente
 	"third_party_reference" => 33333,	# (Obrigatório) Esta referencia será usada para efectuar consulta das transações
 ];
 $mpesa->status($data, function($response) {
