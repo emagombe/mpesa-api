@@ -81,5 +81,3 @@ $mpesa->reversal($data, function($response) {
 	print_r($response);
 });
 ```
-
-**Nota**: Se não indicar o parametro **transaction_reference** será gerado um código aleatório o qual será usado no parametro. O cógido é gerado com base no algorítimo do [uniqid](https://www.php.net/manual/en/function.uniqid.php)
