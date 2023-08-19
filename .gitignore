@@ -23,3 +23,5 @@ Homestead.json
 .phpunit.result.cache
 
 examples/_*
+
+composer.lock
