@@ -36,7 +36,7 @@ $mpesa->b2c($data, function($response) {
 	print_r($response);
 });
 ```
-#### Provável resposta caso bem sucedido
+##### Provável resposta caso bem sucedido
 ```json
 {
   "output_ResponseCode": "INS-0",
@@ -61,7 +61,7 @@ $mpesa->c2b($data, function($response) {
 	print_r($response);
 });
 ```
-#### Provável resposta caso bem sucedido
+##### Provável resposta caso bem sucedido
 ```json
 {
   "output_ResponseCode": "INS-0",
@@ -86,7 +86,7 @@ $mpesa->b2b($data, function($response) {
 	print_r($response);
 });
 ```
-#### Provável resposta caso bem sucedido
+##### Provável resposta caso bem sucedido
 ```json
 {
   "output_ResponseCode": "INS-0",
@@ -112,7 +112,7 @@ $mpesa->reversal($data, function($response) {
 	print_r($response);
 });
 ```
-#### Provável resposta caso bem sucedido
+##### Provável resposta caso bem sucedido
 ```json
 {
   "output_ResponseCode": "INS-0",
@@ -135,7 +135,7 @@ $mpesa->status($data, function($response) {
 	print_r($response);
 });
 ```
-#### Provável resposta caso bem sucedido
+##### Provável resposta caso bem sucedido
 ```json
 {
   "output_ResponseCode": "INS-0",
@@ -162,7 +162,7 @@ $mpesa->status($data, function($response) {
 	print_r($response);
 });
 ```
-#### Provável resposta caso bem sucedido
+##### Provável resposta caso bem sucedido
 ```json
 {
   "output_ResponseCode": "INS-26",
