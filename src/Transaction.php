@@ -43,11 +43,11 @@ class Transaction {
 	public function b2b($data, $callback) {
 		$url = "https://api.sandbox.vm.co.mz:18349/ipg/v1x/b2bPayment/";
 		$params = [
-			"input_TransactionReference" => isset($data["transaction_reference"]) ? $data["transaction_reference"] : uniqid(),
+			"input_TransactionReference" => $data["transaction_reference"],
+			"input_PrimaryPartyCode" => $data["agent_id"],
 			"input_ReceiverPartyCode" => $data["agent_receiver_id"],
 			"input_Amount" => $data["value"],
-			"input_ThirdPartyReference" => (isset($data["transaction_id"]) ? $data["transaction_id"] : Cryptor::getId()),
-			"input_PrimaryPartyCode" => $data["agent_id"],
+			"input_ThirdPartyReference" => $data["third_party_reference"],
 		];
 		$params = json_encode($params);
 		$request = new Request();
