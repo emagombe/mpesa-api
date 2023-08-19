@@ -62,7 +62,7 @@ class Transaction {
 			"input_TransactionID" => $data["transaction_id"],
 			"input_SecurityCredential" => $data["security_credential"],
 			"input_InitiatorIdentifier" => $data["indicator_identifier"],
-			"input_ThirdPartyReference" => isset($data["transaction_reference"]) ? $data["transaction_reference"] : uniqid(),
+			"input_ThirdPartyReference" => $data["third_party_reference"],
 			"input_ServiceProviderCode" => $data["agent_id"],
 			"input_ReversalAmount" => $data["value"],
 		];

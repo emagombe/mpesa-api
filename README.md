@@ -70,11 +70,12 @@ $mpesa->b2b($data, function($response) {
 ```php
 $data = [
 	"value" => 10,
-	"security_credential" => "",
-	"indicator_identifier" => "",
-	"transaction_id" => "",			# Id da transação a reverter
-	"agent_id" => 171717,			# Código do agente
-	"transaction_reference" => "#ref-1234"	# (Opcional) Usando para atribuir uma referencia a transação
+	"security_credential" => "",	# (Obrigatório)
+	"indicator_identifier" => "",	# (Obrigatório)
+	"transaction_id" => "",			# (Obrigatório) Id da transação a reverter
+	"agent_id" => 171717,			# (Obrigatório) Código do agente
+	"transaction_reference" => "#ref-1234"	# (Obrigatório) Usando para atribuir uma referencia a transação
+	"third_party_reference" => "business-1234",	# (Obrigatório) Esta referencia será usada para efectuar consulta das transações
 ];
 $mpesa->reversal($data, function($response) {
 	print_r($response);
