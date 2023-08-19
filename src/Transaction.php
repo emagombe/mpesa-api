@@ -11,10 +11,10 @@ class Transaction {
 		$url = "https://api.sandbox.vm.co.mz:18352/ipg/v1x/c2bPayment/singleStage/";
 
 		$params = [
-			"input_TransactionReference" => isset($data["transaction_reference"]) ? $data["transaction_reference"] : uniqid(),
+			"input_TransactionReference" => $data["transaction_reference"],
 			"input_CustomerMSISDN" => $data["client_number"],
 			"input_Amount" => $data["value"],
-			"input_ThirdPartyReference" => (isset($data["transaction_id"]) ? $data["transaction_id"] : Cryptor::getId()),
+			"input_ThirdPartyReference" => $data["third_party_reference"],
 			"input_ServiceProviderCode" => $data["agent_id"],
 		];
 		$params = json_encode($params);
@@ -69,6 +69,20 @@ class Transaction {
 		$params = json_encode($params);
 		$request = new Request();
 		$request->put($url, $params, function($response) use ($callback) {
+			$callback($response);
+		});
+	}
+
+	public function status($data, $callback) {
+		$url = "https://api.sandbox.vm.co.mz:18353/ipg/v1x/queryTransactionStatus/";
+		$params = [
+			"input_QueryReference" => $data["transaction_id"],
+			"input_ThirdPartyReference" => isset($data["transaction_reference"]) ? $data["transaction_reference"] : uniqid(),
+			"input_ServiceProviderCode" => $data["agent_id"],
+		];
+		$params = json_encode($params);
+		$request = new Request();
+		$request->get($url, $params, function($response) use ($callback) {
 			$callback($response);
 		});
 	}

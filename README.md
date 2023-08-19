@@ -26,10 +26,11 @@ $mpesa = Mpesa::init($api_key, $public_key, $ssl);
 Nesta operação, é transferido valor do agente para o clinte
 ```php
 $data = [
-	"value" => 10,					# Valor a transferir
-	"client_number" => "123456789",			# Número do cliente beneficiário
-	"agent_id" => 171717,				# Código do agente
-	"transaction_reference" => "#ref-1234"		# (Opcional) Usando para atribuir uma referencia a transação
+	"value" => 10,					# (Obrigatório) Valor a transferir
+	"client_number" => "123456789",			# (Obrigatório) Número do cliente beneficiário
+	"agent_id" => 171717,				# (Obrigatório) Código do agente
+	"transaction_reference" => "#ref-1234"		# (Obrigatório) Usado para atribuir uma referencia a transação
+	"third_party_reference" => "#bussiness-1234",		# (Obrigatório) Esta referencia será usada para efectuar consulta das transações
 ];
 $mpesa->b2c($data, function($response) {
 	print_r($response);
