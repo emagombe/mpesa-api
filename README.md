@@ -27,7 +27,7 @@ Transferência de valor do agente para o clinte
 ```php
 $data = [
 	"value" => 10,					# (Obrigatório) Valor a transferir
-	"client_number" => "123456789",			# (Obrigatório) Número do cliente beneficiário
+	"client_number" => "258840000000",			# (Obrigatório) Número do cliente beneficiário
 	"agent_id" => 171717,				# (Obrigatório) Código do agente
 	"transaction_reference" => 1234567		# (Obrigatório) Usado para atribuir uma referencia a transação
 	"third_party_reference" => 33333,	# (Obrigatório) Esta referencia será usada para efectuar consulta das transações
@@ -52,7 +52,7 @@ Transferência de valor do cliente para o agente
 ```php
 $data = [
 	"value" => 10,					# (Obrigatório) Valor a transferir
-	"client_number" => "123456789",			# (Obrigatório) Número do cliente
+	"client_number" => "258840000000",			# (Obrigatório) Número do cliente
 	"agent_id" => 171717,				# (Obrigatório) Código do agente beneficiário
 	"transaction_reference" => 1234567		# (Obrigatório) Usando para atribuir uma referencia a transação
 	"third_party_reference" => 33333,	# (Obrigatório) Esta referencia será usada para efectuar consulta das transações
@@ -143,5 +143,32 @@ $mpesa->status($data, function($response) {
   "output_ResponseTransactionStatus": "Completed",
   "output_ConversationID": "7552194cb219468fa8da3356eed77feb",
   "output_ThirdPartyReference": "33333"
+}
+```
+
+### Nome do cliente
+
+O nome do cliente é retornado. Geralmente usado para confirmar se client_number introduzido está correcto.
+
+Nota impotante: É impossível verificar o nome do cliente usando as credenciais de testes. É necessário obter credencias de produção para que possa visualizar o nome do cliente!
+
+```php
+$data = [
+	"client_number" => "258840000000",				# (Obrigatório) Número do cliente
+	"agent_id" => 171717,				# (Obrigatório) Código do agente
+	"third_party_reference" => 33333,	# (Obrigatório) Esta referencia será usada para efectuar consulta das transações
+];
+$mpesa->status($data, function($response) {
+	print_r($response);
+});
+```
+#### Provável resposta caso bem sucedido
+```json
+{
+  "output_ResponseCode": "INS-26",
+  "output_ResponseDesc": "Not authorized",
+  "output_ConversationID": "f4f9e06d93b7439eb79bd61c7de6f642",
+  "output_ThirdPartyReference": "33333",
+  "output_CustomerName": "N/A"
 }
 ```

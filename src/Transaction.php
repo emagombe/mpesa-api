@@ -85,4 +85,17 @@ class Transaction {
 			$callback($response);
 		});
 	}
+
+	public function customer_name($data, $callback) {
+		$url = "https://api.sandbox.vm.co.mz:19323/ipg/v1x/queryCustomerName/";
+		$params = [
+			"input_CustomerMSISDN" => $data["client_number"],
+			"input_ThirdPartyReference" => $data["third_party_reference"],
+			"input_ServiceProviderCode" => $data["agent_id"],
+		];
+		$request = new Request();
+		$request->get($url, $params, function($response) use ($callback) {
+			$callback($response);
+		});
+	}
 }
