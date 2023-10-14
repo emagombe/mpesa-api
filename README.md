@@ -158,7 +158,7 @@ $data = [
 	"agent_id" => 171717,		# (Obrigatório) Código do agente
 	"third_party_reference" => 33333,	# (Obrigatório) Esta referencia será usada para efectuar consulta das transações
 ];
-$mpesa->status($data, function($response) {
+$mpesa->customer_name($data, function($response) {
 	print_r($response);
 });
 ```
