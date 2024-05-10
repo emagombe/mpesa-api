@@ -28,6 +28,7 @@ Transferência de valor do agente para o clinte
 $data = [
 	"value" => 10,					# (Obrigatório) Valor a transferir
 	"client_number" => "258840000000",			# (Obrigatório) Número do cliente beneficiário
+	"enviroment" => "developement",			# Production/Development
 	"agent_id" => 171717,				# (Obrigatório) Código do agente
 	"transaction_reference" => 1234567		# (Obrigatório) Usado para atribuir uma referencia a transação
 	"third_party_reference" => 33333,	# (Obrigatório) Esta referencia será usada para efectuar consulta das transações
@@ -53,6 +54,7 @@ Transferência de valor do cliente para o agente
 $data = [
 	"value" => 10,					# (Obrigatório) Valor a transferir
 	"client_number" => "258840000000",			# (Obrigatório) Número do cliente
+	"enviroment" => "developement",			# Production/Development
 	"agent_id" => 171717,				# (Obrigatório) Código do agente beneficiário
 	"transaction_reference" => 1234567		# (Obrigatório) Usando para atribuir uma referencia a transação
 	"third_party_reference" => 33333,	# (Obrigatório) Esta referencia será usada para efectuar consulta das transações
@@ -78,6 +80,7 @@ Transferência de valor de agente para agente
 $data = [
 	"value" => 10,					# (Obrigatório) Valor a transferir
 	"agent_id" => 171717,				# (Obrigatório) Código do agente
+	"enviroment" => "developement",			# Production/Development
 	"agent_receiver_id" => 979797,			# (Obrigatório) Código do agente beneficiário
 	"transaction_reference" => 1234567		# (Obrigatório) Usando para atribuir uma referencia a transação
 	"third_party_reference" => 33333,	# (Obrigatório) Esta referencia será usada para efectuar consulta das transações
@@ -103,6 +106,7 @@ $mpesa->b2b($data, function($response) {
 $data = [
 	"value" => 10,
 	"security_credential" => "",	# (Obrigatório)
+	"enviroment" => "developement",			# Production/Development
 	"indicator_identifier" => "",	# (Obrigatório)
 	"transaction_id" => "",			# (Obrigatório) Id da transação a reverter
 	"agent_id" => 171717,			# (Obrigatório) Código do agente
@@ -155,6 +159,7 @@ Nota impotante: É impossível verificar o nome do cliente usando as credenciais
 ```php
 $data = [
 	"client_number" => "258840000000",	# (Obrigatório) Número do cliente
+	"enviroment" => "developement",			# Production/Development
 	"agent_id" => 171717,		# (Obrigatório) Código do agente
 	"third_party_reference" => 33333,	# (Obrigatório) Esta referencia será usada para efectuar consulta das transações
 ];

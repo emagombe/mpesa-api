@@ -8,7 +8,9 @@ use emagombe\Cryptor;
 class Transaction {
 
 	public function c2b($data, $callback) {
-		$url = "https://api.sandbox.vm.co.mz:18352/ipg/v1x/c2bPayment/singleStage/";
+		$is_production = $data["enviroment"] == "prodcution";
+		$base_url = $is_production ? "api.vm.co.mz" : "api.sandbox.vm.co.mz";
+		$url = "https://$base_url:18352/ipg/v1x/c2bPayment/singleStage/";
 
 		$params = [
 			"input_Amount" => $data["value"],
@@ -25,7 +27,9 @@ class Transaction {
 	}
 
 	public function b2c($data, $callback) {
-		$url = "https://api.sandbox.vm.co.mz:18345/ipg/v1x/b2cPayment/";
+		$is_production = $data["enviroment"] == "prodcution";
+		$base_url = $is_production ? "api.vm.co.mz" : "api.sandbox.vm.co.mz";
+		$url = "https://$base_url:18345/ipg/v1x/b2cPayment/";
 		$params = [
 			"input_Amount" => $data["value"],
 			"input_CustomerMSISDN" => $data["client_number"],
@@ -41,7 +45,9 @@ class Transaction {
 	}
 
 	public function b2b($data, $callback) {
-		$url = "https://api.sandbox.vm.co.mz:18349/ipg/v1x/b2bPayment/";
+		$is_production = $data["enviroment"] == "prodcution";
+		$base_url = $is_production ? "api.vm.co.mz" : "api.sandbox.vm.co.mz";
+		$url = "https://$base_url:18349/ipg/v1x/b2bPayment/";
 		$params = [
 			"input_TransactionReference" => $data["transaction_reference"],
 			"input_PrimaryPartyCode" => $data["agent_id"],
@@ -57,7 +63,9 @@ class Transaction {
 	}
 
 	public function reversal($data, $callback) {
-		$url = "https://api.sandbox.vm.co.mz:18354/ipg/v1x/reversal/";
+		$is_production = $data["enviroment"] == "prodcution";
+		$base_url = $is_production ? "api.vm.co.mz" : "api.sandbox.vm.co.mz";
+		$url = "https://$base_url:18354/ipg/v1x/reversal/";
 		$params = [
 			"input_TransactionID" => $data["transaction_id"],
 			"input_SecurityCredential" => $data["security_credential"],
@@ -74,7 +82,9 @@ class Transaction {
 	}
 
 	public function status($data, $callback) {
-		$url = "https://api.sandbox.vm.co.mz:18353/ipg/v1x/queryTransactionStatus/";
+		$is_production = $data["enviroment"] == "prodcution";
+		$base_url = $is_production ? "api.vm.co.mz" : "api.sandbox.vm.co.mz";
+		$url = "https://$base_url:18353/ipg/v1x/queryTransactionStatus/";
 		$params = [
 			"input_QueryReference" => $data["transaction_id"],
 			"input_ThirdPartyReference" => $data["third_party_reference"],
@@ -87,7 +97,9 @@ class Transaction {
 	}
 
 	public function customer_name($data, $callback) {
-		$url = "https://api.sandbox.vm.co.mz:19323/ipg/v1x/queryCustomerName/";
+		$is_production = $data["enviroment"] == "prodcution";
+		$base_url = $is_production ? "api.vm.co.mz" : "api.sandbox.vm.co.mz";
+		$url = "https://$base_url:19323/ipg/v1x/queryCustomerName/";
 		$params = [
 			"input_CustomerMSISDN" => $data["client_number"],
 			"input_ThirdPartyReference" => $data["third_party_reference"],
