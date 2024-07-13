@@ -21,6 +21,5 @@ $data = [
 	"third_party_reference" => 33333,
 	"transaction_id" => "",
 ];
-$mpesa->reversal($data, function($response) {
-	print_r($response);
-});
+$response = $mpesa->reversal($data);
+print_r($response);

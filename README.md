@@ -32,9 +32,8 @@ $data = [
 	"transaction_reference" => 1234567		# (Obrigatório) Usado para atribuir uma referencia a transação
 	"third_party_reference" => 33333,	# (Obrigatório) Esta referencia será usada para efectuar consulta das transações
 ];
-$mpesa->b2c($data, function($response) {
-	print_r($response);
-});
+$response = $mpesa->b2c($data);
+print_r($response);
 ```
 ##### Provável resposta caso bem sucedido
 ```json
@@ -57,9 +56,8 @@ $data = [
 	"transaction_reference" => 1234567		# (Obrigatório) Usando para atribuir uma referencia a transação
 	"third_party_reference" => 33333,	# (Obrigatório) Esta referencia será usada para efectuar consulta das transações
 ];
-$mpesa->c2b($data, function($response) {
-	print_r($response);
-});
+$response = $mpesa->c2b($data);
+print_r($response);
 ```
 ##### Provável resposta caso bem sucedido
 ```json
@@ -82,9 +80,8 @@ $data = [
 	"transaction_reference" => 1234567		# (Obrigatório) Usando para atribuir uma referencia a transação
 	"third_party_reference" => 33333,	# (Obrigatório) Esta referencia será usada para efectuar consulta das transações
 ];
-$mpesa->b2b($data, function($response) {
-	print_r($response);
-});
+$response = $mpesa->b2b($data);
+print_r($response);
 ```
 ##### Provável resposta caso bem sucedido
 ```json
@@ -108,9 +105,8 @@ $data = [
 	"agent_id" => 171717,			# (Obrigatório) Código do agente
 	"third_party_reference" => 33333,	# (Obrigatório) Esta referencia será usada para efectuar consulta das transações
 ];
-$mpesa->reversal($data, function($response) {
-	print_r($response);
-});
+$response = $mpesa->reversal($data);
+print_r($response);
 ```
 ##### Provável resposta caso bem sucedido
 ```json
@@ -131,9 +127,8 @@ $data = [
 	"agent_id" => 171717,			# (Obrigatório) Código do agente
 	"third_party_reference" => 33333,	# (Obrigatório) Esta referencia será usada para efectuar consulta das transações
 ];
-$mpesa->status($data, function($response) {
-	print_r($response);
-});
+$response = $mpesa->status($data);
+print_r($response);
 ```
 ##### Provável resposta caso bem sucedido
 ```json
@@ -158,9 +153,8 @@ $data = [
 	"agent_id" => 171717,		# (Obrigatório) Código do agente
 	"third_party_reference" => 33333,	# (Obrigatório) Esta referencia será usada para efectuar consulta das transações
 ];
-$mpesa->customer_name($data, function($response) {
-	print_r($response);
-});
+$response = $mpesa->customer_name($data);
+print_r($response);
 ```
 ##### Provável resposta caso bem sucedido
 ```json

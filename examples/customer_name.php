@@ -17,6 +17,5 @@ $data = [
 	"agent_id" => 171717,
 	"third_party_reference" => 33333,
 ];
-$mpesa->customer_name($data, function($response) {
-	print_r($response);
-});
+$response = $mpesa->customer_name($data);
+print_r($response);

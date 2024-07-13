@@ -19,6 +19,5 @@ $data = [
 	"third_party_reference" => 33333,
 	"transaction_reference" => 1234567,
 ];
-$mpesa->c2b($data, function($response) {
-	print_r($response);
-});
+$response = $mpesa->c2b($data);
+print_r($response);

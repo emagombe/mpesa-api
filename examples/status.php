@@ -17,6 +17,5 @@ $data = [
 	"agent_id" => 171717,
 	"third_party_reference" => 33333,
 ];
-$mpesa->status($data, function($response) {
-	print_r($response);
-});
+$response = $mpesa->status($data);
+print_r($response);

@@ -7,7 +7,7 @@ use emagombe\Cryptor;
 
 class Transaction {
 
-	public function c2b($data, $callback) {
+	public function c2b($data, $callback = null) {
 		$is_production = Mpesa::$environment == "production";
 		$base_url = $is_production ? "api.vm.co.mz" : "api.sandbox.vm.co.mz";
 		$url = "https://$base_url:18352/ipg/v1x/c2bPayment/singleStage/";
@@ -21,12 +21,17 @@ class Transaction {
 		];
 		$params = json_encode($params);
 		$request = new Request();
-		$request->post($url, $params, function($response) use ($callback) {
+
+		if($callback != null) {
+			trigger_error('Uso de callback foi depreciado e será removido nas próximas versões. Considere usar o valor retornado pela função: $response = mpesa->c2b()', E_USER_DEPRECATED);
+			$response = $request->post($url, $params);
 			$callback($response);
-		});
+		} else {
+			return $request->post($url, $params);
+		}
 	}
 
-	public function b2c($data, $callback) {
+	public function b2c($data, $callback = null) {
 		$is_production = Mpesa::$environment == "production";
 		$base_url = $is_production ? "api.vm.co.mz" : "api.sandbox.vm.co.mz";
 		$url = "https://$base_url:18345/ipg/v1x/b2cPayment/";
@@ -39,12 +44,16 @@ class Transaction {
 		];
 		$params = json_encode($params);
 		$request = new Request();
-		$request->post($url, $params, function($response) use ($callback) {
+		if($callback != null) {
+			trigger_error('Uso de callback foi depreciado e será removido nas próximas versões. Considere usar o valor retornado pela função: $response = mpesa->b2c()', E_USER_DEPRECATED);
+			$response = $request->post($url, $params);
 			$callback($response);
-		});
+		} else {
+			return $request->post($url, $params);
+		}
 	}
 
-	public function b2b($data, $callback) {
+	public function b2b($data, $callback = null) {
 		$is_production = Mpesa::$environment == "production";
 		$base_url = $is_production ? "api.vm.co.mz" : "api.sandbox.vm.co.mz";
 		$url = "https://$base_url:18349/ipg/v1x/b2bPayment/";
@@ -57,12 +66,16 @@ class Transaction {
 		];
 		$params = json_encode($params);
 		$request = new Request();
-		$request->post($url, $params, function($response) use ($callback) {
+		if($callback != null) {
+			trigger_error('Uso de callback foi depreciado e será removido nas próximas versões. Considere usar o valor retornado pela função: $response = mpesa->b2b()', E_USER_DEPRECATED);
+			$response = $request->post($url, $params);
 			$callback($response);
-		});
+		} else {
+			return $request->post($url, $params);
+		}
 	}
 
-	public function reversal($data, $callback) {
+	public function reversal($data, $callback = null) {
 		$is_production = Mpesa::$environment == "production";
 		$base_url = $is_production ? "api.vm.co.mz" : "api.sandbox.vm.co.mz";
 		$url = "https://$base_url:18354/ipg/v1x/reversal/";
@@ -76,12 +89,16 @@ class Transaction {
 		];
 		$params = json_encode($params);
 		$request = new Request();
-		$request->put($url, $params, function($response) use ($callback) {
+		if($callback != null) {
+			trigger_error('Uso de callback foi depreciado e será removido nas próximas versões. Considere usar o valor retornado pela função: $response = mpesa->reversal()', E_USER_DEPRECATED);
+			$response = $request->put($url, $params);
 			$callback($response);
-		});
+		} else {
+			return $request->put($url, $params);
+		}
 	}
 
-	public function status($data, $callback) {
+	public function status($data, $callback = null) {
 		$is_production = Mpesa::$environment == "production";
 		$base_url = $is_production ? "api.vm.co.mz" : "api.sandbox.vm.co.mz";
 		$url = "https://$base_url:18353/ipg/v1x/queryTransactionStatus/";
@@ -91,9 +108,13 @@ class Transaction {
 			"input_ServiceProviderCode" => $data["agent_id"],
 		];
 		$request = new Request();
-		$request->get($url, $params, function($response) use ($callback) {
+		if($callback != null) {
+			trigger_error('Uso de callback foi depreciado e será removido nas próximas versões. Considere usar o valor retornado pela função: $response = mpesa->status()', E_USER_DEPRECATED);
+			$response = $request->get($url, $params);
 			$callback($response);
-		});
+		} else {
+			return $request->get($url, $params);
+		}
 	}
 
 	public function customer_name($data, $callback) {
@@ -106,8 +127,12 @@ class Transaction {
 			"input_ServiceProviderCode" => $data["agent_id"],
 		];
 		$request = new Request();
-		$request->get($url, $params, function($response) use ($callback) {
+		if($callback != null) {
+			trigger_error('Uso de callback foi depreciado e será removido nas próximas versões. Considere usar o valor retornado pela função: $response = mpesa->customer_name()', E_USER_DEPRECATED);
+			$response = $request->get($url, $params);
 			$callback($response);
-		});
+		} else {
+			return $request->get($url, $params);
+		}
 	}
 }

@@ -15,7 +15,7 @@ class Request {
 		$this->public_key = Mpesa::$public_key;
 	}
 
-	public function get($url_path, $params, $callback) {
+	public function get($url_path, $params) {
 
 		$query = http_build_query($params);
 
@@ -36,9 +36,9 @@ class Request {
 		);
 		$context  = stream_context_create($opts);
 		$response = file_get_contents($url_path."?".$query, false, $context);
-		$callback($response);
+		return $response;
 	}
-	public function post($url_path, $params, $callback) {
+	public function post($url_path, $params) {
 		$length = strlen($params);
 		$header = $this->prepare_headers([
 			"Content-Length" => $length,
@@ -59,10 +59,10 @@ class Request {
 		);
 		$context  = stream_context_create($opts);
 		$response = file_get_contents($url_path, false, $context);
-		$callback($response);
+		return $response;
 	}
 
-	public function put($url_path, $params, $callback) {
+	public function put($url_path, $params) {
 		$length = strlen($params);
 		$header = $this->prepare_headers([
 			"Content-Length" => $length,
@@ -83,7 +83,7 @@ class Request {
 		);
 		$context  = stream_context_create($opts);
 		$response = file_get_contents($url_path, false, $context);
-		$callback($response);
+		return $response;
 	}
 
 	private function prepare_headers($headers) {

@@ -19,6 +19,5 @@ $data = [
 	"third_party_reference" => 33333,
 	"transaction_reference" => 1234567,
 ];
-$mpesa->b2c($data, function($response) {
-	print_r($response);
-});
+$response = $mpesa->b2c($data);
+print_r($response);
