@@ -9,12 +9,10 @@ class Request {
 
 	public $api_key = null;
 	public $public_key = null;
-	public $ssl = true;
 
 	public function __construct() {
 		$this->api_key = Mpesa::$api_key;
 		$this->public_key = Mpesa::$public_key;
-		$this->ssl = Mpesa::$ssl;
 	}
 
 	public function get($url_path, $params, $callback) {

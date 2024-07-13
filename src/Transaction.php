@@ -8,7 +8,7 @@ use emagombe\Cryptor;
 class Transaction {
 
 	public function c2b($data, $callback) {
-		$is_production = $data["environment"] == "production";
+		$is_production = Mpesa::$environment == "production";
 		$base_url = $is_production ? "api.vm.co.mz" : "api.sandbox.vm.co.mz";
 		$url = "https://$base_url:18352/ipg/v1x/c2bPayment/singleStage/";
 
@@ -27,7 +27,7 @@ class Transaction {
 	}
 
 	public function b2c($data, $callback) {
-		$is_production = $data["environment"] == "production";
+		$is_production = Mpesa::$environment == "production";
 		$base_url = $is_production ? "api.vm.co.mz" : "api.sandbox.vm.co.mz";
 		$url = "https://$base_url:18345/ipg/v1x/b2cPayment/";
 		$params = [
@@ -45,7 +45,7 @@ class Transaction {
 	}
 
 	public function b2b($data, $callback) {
-		$is_production = $data["environment"] == "production";
+		$is_production = Mpesa::$environment == "production";
 		$base_url = $is_production ? "api.vm.co.mz" : "api.sandbox.vm.co.mz";
 		$url = "https://$base_url:18349/ipg/v1x/b2bPayment/";
 		$params = [
@@ -63,7 +63,7 @@ class Transaction {
 	}
 
 	public function reversal($data, $callback) {
-		$is_production = $data["environment"] == "production";
+		$is_production = Mpesa::$environment == "production";
 		$base_url = $is_production ? "api.vm.co.mz" : "api.sandbox.vm.co.mz";
 		$url = "https://$base_url:18354/ipg/v1x/reversal/";
 		$params = [
@@ -82,7 +82,7 @@ class Transaction {
 	}
 
 	public function status($data, $callback) {
-		$is_production = $data["environment"] == "production";
+		$is_production = Mpesa::$environment == "production";
 		$base_url = $is_production ? "api.vm.co.mz" : "api.sandbox.vm.co.mz";
 		$url = "https://$base_url:18353/ipg/v1x/queryTransactionStatus/";
 		$params = [
@@ -97,7 +97,7 @@ class Transaction {
 	}
 
 	public function customer_name($data, $callback) {
-		$is_production = $data["environment"] == "production";
+		$is_production = Mpesa::$environment == "production";
 		$base_url = $is_production ? "api.vm.co.mz" : "api.sandbox.vm.co.mz";
 		$url = "https://$base_url:19323/ipg/v1x/queryCustomerName/";
 		$params = [

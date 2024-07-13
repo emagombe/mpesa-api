@@ -17,10 +17,10 @@ use emagombe\Mpesa;
 
 $api_key = "";		# Aqui introduz a api key disponibilizada no site
 $public_key = "";	# Aqui introduz o public key disponibilizado no site
-$ssl = true;		# True se pretende utilizar uma conexão segura (SSL)
+$environment = "development";		# production/development
 
 # Inicialização e criação do objecto
-$mpesa = Mpesa::init($api_key, $public_key, $ssl);
+$mpesa = Mpesa::init($api_key, $public_key, $environment);
 ```
 ### Transferência business to client (de negócio para cliente)
 Transferência de valor do agente para o clinte
@@ -28,7 +28,6 @@ Transferência de valor do agente para o clinte
 $data = [
 	"value" => 10,					# (Obrigatório) Valor a transferir
 	"client_number" => "258840000000",			# (Obrigatório) Número do cliente beneficiário
-	"environment" => "development",			# production/development
 	"agent_id" => 171717,				# (Obrigatório) Código do agente
 	"transaction_reference" => 1234567		# (Obrigatório) Usado para atribuir uma referencia a transação
 	"third_party_reference" => 33333,	# (Obrigatório) Esta referencia será usada para efectuar consulta das transações
@@ -54,7 +53,6 @@ Transferência de valor do cliente para o agente
 $data = [
 	"value" => 10,					# (Obrigatório) Valor a transferir
 	"client_number" => "258840000000",			# (Obrigatório) Número do cliente
-	"environment" => "development",			# production/development
 	"agent_id" => 171717,				# (Obrigatório) Código do agente beneficiário
 	"transaction_reference" => 1234567		# (Obrigatório) Usando para atribuir uma referencia a transação
 	"third_party_reference" => 33333,	# (Obrigatório) Esta referencia será usada para efectuar consulta das transações
@@ -80,7 +78,6 @@ Transferência de valor de agente para agente
 $data = [
 	"value" => 10,					# (Obrigatório) Valor a transferir
 	"agent_id" => 171717,				# (Obrigatório) Código do agente
-	"environment" => "development",			# production/development
 	"agent_receiver_id" => 979797,			# (Obrigatório) Código do agente beneficiário
 	"transaction_reference" => 1234567		# (Obrigatório) Usando para atribuir uma referencia a transação
 	"third_party_reference" => 33333,	# (Obrigatório) Esta referencia será usada para efectuar consulta das transações
@@ -106,7 +103,6 @@ $mpesa->b2b($data, function($response) {
 $data = [
 	"value" => 10,
 	"security_credential" => "",	# (Obrigatório)
-	"environment" => "development",			# production/development
 	"indicator_identifier" => "",	# (Obrigatório)
 	"transaction_id" => "",			# (Obrigatório) Id da transação a reverter
 	"agent_id" => 171717,			# (Obrigatório) Código do agente
@@ -132,7 +128,6 @@ $mpesa->reversal($data, function($response) {
 ```php
 $data = [
 	"transaction_id" => "",		# (Obrigatório) Id da transação a reverter
-	"environment" => "development",			# production/development
 	"agent_id" => 171717,			# (Obrigatório) Código do agente
 	"third_party_reference" => 33333,	# (Obrigatório) Esta referencia será usada para efectuar consulta das transações
 ];
@@ -160,7 +155,6 @@ Nota impotante: É impossível verificar o nome do cliente usando as credenciais
 ```php
 $data = [
 	"client_number" => "258840000000",	# (Obrigatório) Número do cliente
-	"environment" => "development",			# production/development
 	"agent_id" => 171717,		# (Obrigatório) Código do agente
 	"third_party_reference" => 33333,	# (Obrigatório) Esta referencia será usada para efectuar consulta das transações
 ];

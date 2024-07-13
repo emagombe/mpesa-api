@@ -8,8 +8,8 @@ set_time_limit(0);
 
 $api_key = "";
 $public_key = "";
-$ssl = true;
-$mpesa = Mpesa::init($api_key, $public_key, $ssl);
+$environment = "development";
+$mpesa = Mpesa::init($api_key, $public_key, $environment);
 
 /* Transfer to client */
 $data = [
