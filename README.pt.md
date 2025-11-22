@@ -4,31 +4,31 @@
 
 **[English](README.md) | [Português](README.pt.md)**
 
-PHP API for M-PESA integration (Mozambique).
+API PHP para integração com M-PESA (Moçambique).
 
-## Installation
+## Instalação
 
 ```bash
 composer require emagombe/mpesa-api
 ```
 
-## Configuration
+## Configuração
 
-Get your credentials at https://developer.mpesa.vm.co.mz/
+Obtenha as credenciais em https://developer.mpesa.vm.co.mz/
 
 ```php
 use emagombe\Mpesa;
 
 $mpesa = Mpesa::init(
-    $api_key,        // API Key from portal
-    $public_key,     // Public Key from portal
-    "development"    // "development" or "production"
+    $api_key,        // API Key do portal
+    $public_key,     // Public Key do portal
+    "development"    // "development" ou "production"
 );
 ```
 
-## Operations
+## Operações
 
-### C2B (Client → Business)
+### C2B (Cliente → Negócio)
 
 ```php
 $response = $mpesa->c2b([
@@ -42,7 +42,7 @@ $response = $mpesa->c2b([
 print_r($response);
 ```
 
-### B2C (Business → Client)
+### B2C (Negócio → Cliente)
 
 ```php
 $response = $mpesa->b2c([
@@ -56,7 +56,7 @@ $response = $mpesa->b2c([
 print_r($response);
 ```
 
-### B2B (Business → Business)
+### B2B (Negócio → Negócio)
 
 ```php
 $response = $mpesa->b2b([
@@ -70,7 +70,7 @@ $response = $mpesa->b2b([
 print_r($response);
 ```
 
-### Reversal
+### Reversão
 
 ```php
 $response = $mpesa->reversal([
@@ -85,7 +85,7 @@ $response = $mpesa->reversal([
 print_r($response);
 ```
 
-### Query Status
+### Consultar Estado
 
 ```php
 $response = $mpesa->status([
@@ -93,13 +93,11 @@ $response = $mpesa->status([
     "agent_id" => 171717,
     "third_party_reference" => 33333
 ]);
-
-print_r($response);
 ```
 
-### Customer Name
+### Nome do Cliente
 
-**Note:** Requires production credentials.
+**Nota:** Requer credenciais de produção.
 
 ```php
 $response = $mpesa->customer_name([
@@ -107,11 +105,9 @@ $response = $mpesa->customer_name([
     "agent_id" => 171717,
     "third_party_reference" => 33333
 ]);
-
-print_r($response);
 ```
 
-## Success Response
+## Resposta de Sucesso
 
 ```json
 {
@@ -123,6 +119,6 @@ print_r($response);
 }
 ```
 
-## License
+## Licença
 
 GPL v3
