@@ -117,7 +117,7 @@ class Transaction {
 		}
 	}
 
-	public function customer_name($data, $callback) {
+	public function customer_name($data, $callback = null) {
 		$is_production = Mpesa::$environment == "production";
 		$base_url = $is_production ? "api.vm.co.mz" : "api.sandbox.vm.co.mz";
 		$url = "https://$base_url:19323/ipg/v1x/queryCustomerName/";
